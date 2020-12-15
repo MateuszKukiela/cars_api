@@ -4,8 +4,8 @@ from django.urls import path
 from rest_framework.documentation import include_docs_urls
 from rest_framework.schemas import get_schema_view
 
-API_TITLE = "Not Twitter API"
-API_DESCRIPTION = "A Web API for creating and viewing short messages."
+API_TITLE = "Cars API"
+API_DESCRIPTION = "A Web API for adding and rating cars."
 schema_view = get_schema_view(title=API_TITLE)
 
 urlpatterns = [
