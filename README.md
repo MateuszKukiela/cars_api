@@ -1,39 +1,41 @@
-# yet_another_twitter_clone
-Totally not a twitter clone
+# cars_api
+For your cars related needs
 
 ## About
 
-This is a simple API allowing registered users to post messages.
-Unregistered users can only view messages.
+This is a simple API allowing adding cars to a database and rating them.
 
 
 ## Usage
 
-To view whole API documentation use go to [/docs/](http://fast-fjord-08287.herokuapp.com/docs/)
+To view whole API documentation use go to [/docs/](http://afternoon-beach-36358.herokuapp.com/docs/)
 
 Short summary below:
 
-To be able to post you have to create an account:
-* POST /users/ and in body use json like this: {"username": \<your_username>, "password": \<your_password>}
+POST /cars
+* Request body should contain car make and model name
+  e.g. {"make":"Volkswagen", "model":"Golf"}
   
-To login you can use BasicAuth
+POST /rate
+* Add a rate for a car from 1 to 5
+ e.g. {"car":<car_id>, "rating":<1-5>}
+  
+GET /cars
+* Will fetch list of all cars already present in application database with their current average rate
 
-To get posts and post posts yourself use:
+GET /popular
+* Will return top 10 cars already present in the database ranking based on number of rates
 
-* GET /posts/  to get all posts in paginated view
-* GET /posts/\<id> to get content of given post
-* POST /posts/ and in body use json like this: {"content": \<your message up to 160 characters>}
 
-You are welcome to test this API at: [http://fast-fjord-08287.herokuapp.com/](http://fast-fjord-08287.herokuapp.com/)
-There is an already registered user for your convenience login:test password:test
+You are welcome to test this API at: [http://afternoon-beach-36358.herokuapp.com/](http://afternoon-beach-36358.herokuapp.com/)
 
-There is also standard django admin available: [http://fast-fjord-08287.herokuapp.com/admin](http://fast-fjord-08287.herokuapp.com/admin)
+There is also standard django admin available: [http://afternoon-beach-36358.herokuapp.com/admin](http://afternoon-beach-36358.herokuapp.com/admin)
 
 
 
 ## Local development
 
-This app is made for heroku deployment, but for local development it uses docker-compose.
+This app is made for heroku deployment, but for local development it uses docker-compose. Docker uses requirements_dev.txt ad for production on heroku we use requirements.txt.
 Remember to fill .env.sample and rename it to .env
 Then:
 
@@ -63,7 +65,6 @@ You can also use black and isort
 
 ## TO DO
 * Increase test coverage
-* Add Token authentication and endpoint for it generating
 * Add some sort of CI (Heroku CI isn't free, so I'm thinking about moving this repo to GitLab, as they have free CI)
 * Add NginX and Let's Encrypt combo to docker-compose, it would be production ready on any machine then.
 * Move Database setting from settings.py to local_settings.py, or deal with it differently as I don't like current solution. 

@@ -10,4 +10,4 @@ Faker==5.0.1
 factory-boy==3.1.0
 PyYAML==5.3.1
 requests==2.25.0
-
+urllib3==1.26.2
