@@ -31,6 +31,7 @@ class CarViewSet(
         self.queryset = self.queryset.annotate(rates_number=Count("rates__rating"))
         return self.queryset
 
+    # TODO: make this look cleaner
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)

@@ -14,8 +14,8 @@ RUN apk update \
     && pip install psycopg2
 
 # install dependencies
-COPY requirements_dev.txt .
-RUN pip install -r requirements_dev.txt
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 # copy project
 COPY . .

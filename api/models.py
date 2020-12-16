@@ -27,6 +27,7 @@ class Car(models.Model):
             "model",
         )
 
+    # For cleaner look in admin panel
     def __str__(self):
         return f"{self.make} {self.model}"
 
