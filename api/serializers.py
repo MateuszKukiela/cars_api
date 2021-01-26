@@ -37,7 +37,7 @@ class CarSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class RateSerializer(serializers.HyperlinkedModelSerializer):
-    car = serializers.PrimaryKeyRelatedField(
+    car_id = serializers.PrimaryKeyRelatedField(
         queryset=Car.objects.all(), help_text="ID of car to rate."
     )
     rating = serializers.IntegerField(
@@ -48,4 +48,4 @@ class RateSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Rate
-        fields = ("id", "car", "rating")
+        fields = ("id", "car_id", "rating")

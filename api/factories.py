@@ -21,5 +21,5 @@ class RateFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Rate
 
-    car = factory.SubFactory(CarFactory)
+    car_id = factory.SubFactory(CarFactory)
     rating = randint(MIN_RATING, MAX_RATING)

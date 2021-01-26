@@ -11,7 +11,7 @@ from api.serializers import CarSerializer, RateSerializer
 
 
 class CarViewSet(
-    mixins.ListModelMixin, mixins.CreateModelMixin, viewsets.GenericViewSet
+    mixins.ListModelMixin, mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet
 ):
     """
     list:
@@ -19,12 +19,15 @@ class CarViewSet(
 
     create:
     Create a new car instance.
+
+    delete:
+    Deletes a car instance.
     """
 
     queryset = Car.objects.all()
     serializer_class = CarSerializer
     pagination_class = None
-    http_method_names = ["get", "post"]
+    http_method_names = ["get", "post", "delete"]
 
     def get_queryset(self):
         self.queryset = self.queryset.annotate(avg_rating=Avg("rates__rating"))

@@ -10,7 +10,7 @@ class CarAdmin(admin.ModelAdmin):
 
 class RateAdmin(admin.ModelAdmin):
     search_fields = ("car", "rating")
-    list_display = ("id", "car", "rating")
+    list_display = ("id", "car_id", "rating")
 
 
 admin.site.register(Car, CarAdmin)
