@@ -28,6 +28,9 @@ GET /cars
 GET /popular
 * Will return top 10 cars already present in the database ranking based on number of rates
 
+DELETE /cars/{id}
+* Will delete a car with the given id
+
 
 You are welcome to test this API at: [http://afternoon-beach-36358.herokuapp.com/](http://afternoon-beach-36358.herokuapp.com/)
 
